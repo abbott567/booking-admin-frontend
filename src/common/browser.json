@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    "./application.scss",
+    "../components/time-select",
+    "../components/summary"
+  ]
+}

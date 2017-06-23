@@ -1,0 +1,12 @@
+{
+  "@items <item>[]": {
+    "@name": {
+      "required": true,
+      "type": "string"
+    },
+    "@value": {
+      "required": true,
+      "type": "string"
+    }
+  }
+}

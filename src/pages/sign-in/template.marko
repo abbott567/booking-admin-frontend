@@ -1,0 +1,20 @@
+<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+
+  <@content>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Sign in</h1>
+
+        <p>
+          Only authorised administrators can access the admin panel. If you’re on 
+          the list, a magic link will be emailed to you which will sign you in.
+        </p>
+
+        <gov-input name='email-address' label='Email address'/>
+
+        <button class="button">Send magic link</button>
+      </div>
+    </div>
+  </@content>
+
+</include>

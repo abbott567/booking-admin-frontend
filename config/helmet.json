@@ -1,0 +1,30 @@
+{
+  "contentSecurityPolicy": {
+    "directives": {
+      "defaultSrc": [
+        "'self'"
+      ],
+      "scriptSrc": [
+        "'self'",
+        "'unsafe-inline'"
+      ],
+      "imgSrc": [
+        "'self'"
+      ],
+      "fontSrc": [
+        "'self'",
+        "data: blob:"
+      ],
+      "styleSrc": [
+        "'self'",
+        "'unsafe-inline'"
+      ]
+    },
+    "reportOnly": false,
+    "setAllHeaders": true,
+    "disableAndroid": false
+  },
+  "frameguard": {
+    "action": "deny"
+  }
+}

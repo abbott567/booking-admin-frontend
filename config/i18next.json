@@ -1,0 +1,33 @@
+{
+  "detection": {
+    "order": [
+      "querystring",
+      "cookie",
+      "header"
+    ],
+    "lookupQuerystring": "lng",
+    "lookupCookie": "language",
+    "caches": [
+      "cookie"
+    ]
+  },
+  "backend": {
+    "loadPath": "./locales/{{lng}}/{{ns}}.json"
+  },
+  "ns": [
+    "app",
+    "choose",
+    "book",
+    "date",
+    "email",
+    "calendar",
+    "cancel",
+    "cancelled",
+    "error"
+  ],
+  "joinArrays": "\n",
+  "whitelist": [
+    "en"
+  ],
+  "fallbackLng": "en"
+}
