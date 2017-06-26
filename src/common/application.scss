@@ -3,6 +3,21 @@ $path: '/node_modules/govuk_frontend_toolkit/images/';
 
 @import 'govuk-elements';
 
+.search-results {
+  li {
+    margin-bottom: 1em;
+  }
+  .search-primary-text {
+    font-weight: bold;
+    display: block;
+  }
+  .search-secondary-text {
+    color: #666;
+    display: block;
+    margin-bottom: .1em;
+  }
+}
+
 strong {
   font-weight: bold;
 }

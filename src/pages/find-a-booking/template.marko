@@ -1,15 +1,44 @@
-<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+import formatTime from '../../utils/format-time';
+$ const i18n = out.stream.req.t;
 
+<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
         <h1 class="heading-xlarge">Find a booking</h1>
 
-        <bsp-search-box 
-          name="search"
-          label="Search by name or description"
-          button-text="Search"
-        />
+        <form>
+          <bsp-search-box 
+            name="search"
+            label="Search by name or description"
+            button-text="Search"
+          />
+        </form>
+        
+        <p if(data.results.length > 0)>${data.results.length} ${data.resultText} found</p>
+
+        <ul if(data.results.length > 0) class="list search-results">
+          <for(booking in data.results)>
+            <li>
+              <h3 class="search-primary-text">
+                <a href="/booking/${booking.id}">
+                  ${booking.description} - ${booking.name}
+                </a>
+              </h3>
+
+              <span class="search-secondary-text">
+                ${booking.room.location.name} - ${booking.room.name}
+              </span>
+
+              ${i18n('date:dayMonthYear', {
+                day: new Date(booking.start).getDate(),
+                month: new Date(booking.start).getMonth(),
+                year: new Date(booking.start).getFullYear()
+              })}<br />
+              ${formatTime(new Date(booking.start))} - ${formatTime(new Date(booking.end))}
+            </li>
+          </for>
+        </ul>
       </div>
     </div>
   </@content>
