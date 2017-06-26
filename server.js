@@ -76,6 +76,7 @@ app.use((req, res, next) => {
 
 // Page routes
 app.use('/sign-in', require('./src/pages/sign-in'));
+app.use('/check-your-email', require('./src/pages/check-your-email'));
 
 // Redirect root to start page
 app.get('/', (req, res) => res.redirect('/sign-in'));
