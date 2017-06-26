@@ -8,7 +8,7 @@ function get(req, res) {
     req.session.userSignedIn = true;
     return res.redirect('/find-a-booking');
   }
-  return res.redirect('/not-authorised');
+  return res.redirect('/sign-in');
 }
 
 module.exports = {get};
