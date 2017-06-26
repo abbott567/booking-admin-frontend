@@ -1,0 +1,17 @@
+{
+  "@name": {
+    "type": "string",
+    "required": true
+  },
+  "@label": {
+    "type": "string",
+    "required": true
+  },
+  "@button-text": {
+    "type": "string",
+    "required": true
+  },
+  "@id": "string",
+  "@error": "string",
+  "@value": "string"
+}

@@ -1,0 +1,17 @@
+$ const inputId = input.id || 'input-' + input.name;
+
+<div class=['form-group', 'search-group', input.error && 'form-group-error']>
+  <label.form-label for=inputId>
+    <span>
+      ${input.label}
+    </span>
+    <span.error-message if(input.error)>
+      ${input.error}
+    </span>
+  </label>
+  <input.form-control.form-control-search type="search" name=input.name
+    id=inputId value=input.value autocomplete="off"/>
+  <button.button-search type="submit">
+    <span.visually-hidden>${input.buttonText}</span>
+  </button>
+</div>

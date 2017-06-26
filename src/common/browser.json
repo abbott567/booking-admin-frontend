@@ -2,6 +2,7 @@
   "dependencies": [
     "./application.scss",
     "../components/time-select",
-    "../components/summary"
+    "../components/summary",
+    "../components/bsp-search-box"
   ]
 }
