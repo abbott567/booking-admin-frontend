@@ -86,6 +86,7 @@ app.use('/sign-in', require('./src/pages/sign-in'));
 app.use('/check-your-email', require('./src/pages/check-your-email'));
 app.use('/not-authorised', require('./src/pages/not-authorised'));
 app.use('/verify', require('./src/pages/verify'));
+app.use('/find-a-booking', require('./src/pages/find-a-booking'));
 
 // Redirect root to start page
 app.get('/', (req, res) => res.redirect('/sign-in'));

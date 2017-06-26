@@ -6,7 +6,7 @@ function get(req, res) {
 
   if ((magicLink && sessionLink) && (magicLink === sessionLink)) {
     req.session.userSignedIn = true;
-    return res.redirect('/bookings');
+    return res.redirect('/find-a-booking');
   }
   return res.redirect('/not-authorised');
 }

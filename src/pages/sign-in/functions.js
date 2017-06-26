@@ -8,7 +8,7 @@ function get(req, res) {
   const userSignedIn = req.session.userSignedIn;
 
   if (userSignedIn) {
-    return res.redirect('/bookings');
+    return res.redirect('/find-a-booking');
   }
   return template.render({}, res);
 }
