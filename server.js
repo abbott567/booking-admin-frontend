@@ -9,6 +9,7 @@ const helmet = require('helmet');
 const i18next = require('i18next');
 const FilesystemBackend = require('i18next-node-fs-backend');
 const i18nextMiddleware = require('i18next-express-middleware');
+const cookieSession = require('cookie-session');
 
 // Configure Lasso.js
 require('lasso').configure(require('./config/lasso'));
@@ -21,6 +22,12 @@ i18next
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+// Enable cookie session storage
+app.use(cookieSession({
+  name: 'gaStuff',
+  keys: ['key1', 'key2']
+}));
 
 // Enable compression
 app.use(shrinkRay());
@@ -77,6 +84,8 @@ app.use((req, res, next) => {
 // Page routes
 app.use('/sign-in', require('./src/pages/sign-in'));
 app.use('/check-your-email', require('./src/pages/check-your-email'));
+app.use('/not-authorised', require('./src/pages/not-authorised'));
+app.use('/verify', require('./src/pages/verify'));
 
 // Redirect root to start page
 app.get('/', (req, res) => res.redirect('/sign-in'));

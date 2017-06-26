@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.1",
+    "cookie-session": "^2.0.0-beta.2",
     "date-fns": "^1.28.4",
     "express": "^4.15.2",
     "got": "^6.7.1",
@@ -26,6 +27,7 @@
     "marko-i18next": "^0.2.0",
     "nodemailer": "^4.0.1",
     "shrink-ray": "^0.1.3",
+    "uuid": "^3.1.0",
     "validator": "^7.0.0"
   },
   "devDependencies": {

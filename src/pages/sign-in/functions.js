@@ -1,24 +1,38 @@
 'use strict';
+
+const uuid = require('uuid');
 const sendMail = require('../../lib/send-mail');
 const template = require('./template.marko');
 
 function get(req, res) {
-  template.render({}, res);
+  const userSignedIn = req.session.userSignedIn;
+
+  if (userSignedIn) {
+    return res.redirect('/bookings');
+  }
+  return template.render({}, res);
 }
 
-function post(req, res) {
-  const url = `${req.protocol}://${req.get('host')}/cancel/`;
+function post(req, res, next) {
+  const link = uuid();
+  const url = `${req.protocol}://${req.get('host')}/verify?link=${link}`;
   const email = req.body['email-address'];
+  const whiteList = process.env.EMAIL_WHITE_LIST;
 
-  sendMail({
-    to: email,
-    subject: req.t('email:subject'),
-    text: req.t('email:body', {url})
-  }).then(() => {
-    template.render({}, res);
-  }).catch(err => {
-    console.log(err);
-  });
+  if (whiteList.includes(email)) {
+    req.session.link = link;
+    sendMail({
+      to: email,
+      subject: req.t('email:subject'),
+      text: req.t('email:body', {url})
+    }).then(() => {
+      return res.redirect('/check-your-email');
+    }).catch(err => {
+      next(err);
+    });
+  } else {
+    res.redirect('/not-authorised');
+  }
 }
 
 module.exports = {get, post};
