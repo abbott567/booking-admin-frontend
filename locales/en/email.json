@@ -1,16 +1,8 @@
 {
   "subject": "Booked: {{roomName}}, {{bookingDate}}, {{time}}",
   "body": [
-    "Hi {{name}},",
-    "",
-    "Here is confirmation of your room booking:",
-    "",
-    "Room: {{roomName}}",
-    "Description: {{description}}",
-    "Date: {{bookingDate}}",
-    "Time: {{time}}",
-    "",
-    "If your plans change, and you no longer need this room, please click the following link to remove your booking so that other people may use the room at this time.",
+    "Here is your magic link, click this to sign into the room booking admin panel.",
+    "The link will expire in 20 mintes, so don't leave it too long.",
     "",
     "{{-url}}"
   ]
