@@ -3,11 +3,7 @@
 const template = require('./template.marko');
 
 function get(req, res) {
-  const userSignedIn = req.session.userSignedIn;
-  if (userSignedIn) {
-    return template.render({}, res);
-  }
-  return res.redirect('/sign-in');
+  template.render({}, res);
 }
 
 function post(req, res) {

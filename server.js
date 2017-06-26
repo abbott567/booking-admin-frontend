@@ -84,12 +84,27 @@ app.use((req, res, next) => {
 // Page routes
 app.use('/sign-in', require('./src/pages/sign-in'));
 app.use('/check-your-email', require('./src/pages/check-your-email'));
-app.use('/not-authorised', require('./src/pages/not-authorised'));
 app.use('/verify', require('./src/pages/verify'));
+app.use('/not-authorised', require('./src/pages/not-authorised'));
+
+app.use((req, res, next) => {
+  const userSignedIn = req.session.userSignedIn;
+  if (userSignedIn) {
+    return next();
+  }
+  res.redirect('sign-in');
+});
+
 app.use('/find-a-booking', require('./src/pages/find-a-booking'));
 
 // Redirect root to start page
-app.get('/', (req, res) => res.redirect('/sign-in'));
+app.get('/', (req, res) => {
+  const userSignedIn = req.session.userSignedIn;
+  if (userSignedIn) {
+    return res.redirect('/find-a-booking');
+  }
+  res.redirect('/sign-in');
+});
 
 // Handler errors
 app.use(require('./src/pages/error'));

@@ -5,12 +5,7 @@ const sendMail = require('../../lib/send-mail');
 const template = require('./template.marko');
 
 function get(req, res) {
-  const userSignedIn = req.session.userSignedIn;
-
-  if (userSignedIn) {
-    return res.redirect('/find-a-booking');
-  }
-  return template.render({}, res);
+  template.render({}, res);
 }
 
 function post(req, res, next) {
