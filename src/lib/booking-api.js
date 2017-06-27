@@ -66,6 +66,40 @@ function getRoomWithBookings(id, date) {
   });
 }
 
+function searchBookings(search) {
+  return got(`${apiUrl}/Bookings`, {
+    json: true,
+    query: {
+      filter: JSON.stringify({
+        where: {
+          or: [
+            {
+              name: {
+                like: search,
+                options: 'i'
+              }
+            },
+            {
+              description: {
+                like: search,
+                options: 'i'
+              }
+            }
+          ]
+        },
+        include: [
+          {
+            relation: 'room',
+            scope: {
+              include: 'location'
+            }
+          }
+        ]
+      })
+    }
+  });
+}
+
 module.exports = {
-  getBooking, deleteBooking, getLocationsAndRooms, getRoomWithBookings, bookRoom
+  getBooking, deleteBooking, getLocationsAndRooms, getRoomWithBookings, bookRoom, searchBookings
 };

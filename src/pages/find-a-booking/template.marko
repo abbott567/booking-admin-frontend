@@ -15,30 +15,34 @@ $ const i18n = out.stream.req.t;
           />
         </form>
         
-        <p if(data.results.length > 0)>${data.results.length} ${data.resultText} found</p>
+        <if(data.results)>
+          <p>${data.results.length} ${data.resultText} found for '<span class="bold">${data.search}</span>'</p>
 
-        <ul if(data.results.length > 0) class="list search-results">
-          <for(booking in data.results)>
-            <li>
-              <h3 class="search-primary-text">
-                <a href="/booking/${booking.id}">
-                  ${booking.description} - ${booking.name}
-                </a>
-              </h3>
+          <ul if(data.results.length > 0) class="list search-results">
+            <for(booking in data.results)>
+              $ const day = new Date(booking.start).getDate();
+              $ const month = new Date(booking.start).getMonth();
+              $ const year = new Date(booking.start).getFullYear();
+              $ const start = formatTime(new Date(booking.start));
+              $ const end = formatTime(new Date(booking.end));
 
-              <span class="search-secondary-text">
-                ${booking.room.location.name} - ${booking.room.name}
-              </span>
+              <li>
+                <h3 class="search-primary-text">
+                  <a href="/booking/${booking.id}">
+                    ${booking.description} - ${booking.name}
+                  </a>
+                </h3>
 
-              ${i18n('date:dayMonthYear', {
-                day: new Date(booking.start).getDate(),
-                month: new Date(booking.start).getMonth(),
-                year: new Date(booking.start).getFullYear()
-              })}<br />
-              ${formatTime(new Date(booking.start))} - ${formatTime(new Date(booking.end))}
-            </li>
-          </for>
-        </ul>
+                <span class="search-secondary-text">
+                  ${booking.room.location.name} - ${booking.room.name}
+                </span>
+
+                ${i18n('date:dayMonthYear', {day, month, year})}<br />
+                ${start} - ${end}
+              </li>
+            </for>
+          </ul>
+          </if>
       </div>
     </div>
   </@content>

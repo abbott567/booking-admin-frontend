@@ -1,52 +1,22 @@
 'use strict';
 
-const apiUrl = (process.env.API_URL || 'http://localhost:3000') + '/api';
-const got = require('got');
 const template = require('./template.marko');
+const {searchBookings} = require('./../../lib/booking-api');
 
 function get(req, res) {
   const search = req.query.search;
   if (search) {
-    return got(`${apiUrl}/Bookings`, {
-      json: true,
-      query: {
-        filter: JSON.stringify({
-          where: {
-            or: [
-              {
-                name: {
-                  like: search,
-                  options: 'i'
-                }
-              },
-              {
-                description: {
-                  like: search,
-                  options: 'i'
-                }
-              }
-            ]
-          },
-          include: [
-            {
-              relation: 'room',
-              scope: {
-                include: 'location'
-              }
-            }
-          ]
-        })
-      }
-    }).then(response => {
+    searchBookings(search)
+    .then(response => {
       const results = response.body;
-      console.log(results)
       const resultText = (results.length === 1 ? 'result' : 'results');
-      return template.render({results, resultText}, res);
+      return template.render({results, resultText, search: req.query.search}, res);
     }).catch(err => {
       console.log(err);
     });
+  } else {
+    template.render({}, res);
   }
-  template.render({}, res);
 }
 
 function post(req, res) {
