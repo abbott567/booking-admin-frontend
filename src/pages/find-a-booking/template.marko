@@ -16,7 +16,7 @@ $ const i18n = out.stream.req.t;
         </form>
         
         <if(data.results)>
-          <p>${data.results.length} ${data.resultText} found for '<span class="bold">${data.search}</span>'</p>
+          <p>${data.results.length} ${data.resultText} found for "<span class="bold">${data.search}</span>"</p>
 
           <ul if(data.results.length > 0) class="list search-results">
             <for(booking in data.results)>
