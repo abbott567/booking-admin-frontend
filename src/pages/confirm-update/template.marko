@@ -1,8 +1,17 @@
 import formatTime from '../../utils/format-time';
+$ const i18n = out.stream.req.t;
+
 $ const startOld = formatTime(new Date(data.booking.start));
 $ const endOld = formatTime(new Date(data.booking.end));
+$ const currentDay = new Date(data.booking.start).getDate();
+$ const currentMonth = new Date(data.booking.start).getMonth();
+$ const currentYear = new Date(data.booking.start).getFullYear();
+
 $ const startNew = formatTime(new Date(data.updates.start));
 $ const endNew = formatTime(new Date(data.updates.end));
+$ const updatesDay = new Date(data.updates.start).getDate();
+$ const updatesMonth = new Date(data.updates.start).getMonth();
+$ const updatesYear = new Date(data.updates.start).getFullYear();
 
 <include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
 
@@ -13,18 +22,20 @@ $ const endNew = formatTime(new Date(data.updates.end));
 
         <h2 class="heading-medium">Old booking</h2>
         <div class="panel panel-border-narrow">
-          <h3 class="heading-small">${data.booking.room.location.name} - ${data.booking.room.name}</h3>
+          <h3 class="heading-small">${data.booking.name} - ${data.booking.description}</h3>
           <p>
-            ${data.booking.name} - ${data.booking.description}<br />
+            ${data.booking.room.location.name} - ${data.booking.room.name}<br />
+            ${i18n('date:dayMonthYear', {day: currentDay, month: currentMonth, year: currentYear})}<br />
             ${startOld} - ${endOld}
           </p>
         </div>
 
         <h2 class="heading-medium">New booking</h2>
         <div class="panel panel-border-narrow">
-          <h3 class="heading-small">${data.updates.room.location.name} - ${data.updates.room.name}</h3>
+          <h3 class="heading-small">${data.updates.name} - ${data.updates.description}</h3>
           <p>
-            ${data.updates.name} - ${data.updates.description}<br />
+            ${data.updates.room.location.name} - ${data.updates.room.name}<br />
+            ${i18n('date:dayMonthYear', {day: updatesDay, month: updatesMonth, year: updatesYear})}<br />
             ${startNew} - ${endNew}
           </p>
         </div>

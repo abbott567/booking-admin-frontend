@@ -3,7 +3,7 @@ $ const i18n = out.stream.req.t;
 <include('../../common/layout.marko') page-title="${i18n('error:${data.status}.heading')}">
 
   <@content>
-    <a href="/booking/${data.id}" class="link-back">Edit</a>
+    <a href="/booking/${data.booking.id}" class="link-back">Edit</a>
     <h1.heading-xlarge>
       Rooms can't be double booked
     </h1>
