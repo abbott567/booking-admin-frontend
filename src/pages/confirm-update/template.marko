@@ -1,0 +1,49 @@
+import formatTime from '../../utils/format-time';
+$ const startOld = formatTime(new Date(data.booking.start));
+$ const endOld = formatTime(new Date(data.booking.end));
+$ const startNew = formatTime(new Date(data.updates.start));
+$ const endNew = formatTime(new Date(data.updates.end));
+
+<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+
+  <@content>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Confirm changes</h1>
+
+        <h2 class="heading-medium">Old booking</h2>
+        <div class="panel panel-border-narrow">
+          <h3 class="heading-small">${data.booking.room.location.name} - ${data.booking.room.name}</h3>
+          <p>
+            ${data.booking.name} - ${data.booking.description}<br />
+            ${startOld} - ${endOld}
+          </p>
+        </div>
+
+        <h2 class="heading-medium">New booking</h2>
+        <div class="panel panel-border-narrow">
+          <h3 class="heading-small">${data.updates.room.location.name} - ${data.updates.room.name}</h3>
+          <p>
+            ${data.updates.name} - ${data.updates.description}<br />
+            ${startNew} - ${endNew}
+          </p>
+        </div>
+
+        <form class="post">
+          <input type="hidden" name="id" value="${data.updates.name}"/>
+          <input type="hidden" name="start" value="${data.updates.start}"/>
+          <input type="hidden" name="end" value="${data.updates.end}"/>
+          <input type="hidden" name="description" value="${data.updates.description}"/>
+          <input type="hidden" name="name" value="${data.updates.name}"/>
+          <input type="hidden" name="roomId" value="${data.updates.roomId}"/>
+
+          <div class="form-group">
+            <button type="submit" class="button">Save changes</button>
+            <a href="/booking/${data.booking.id}" class="cancel-link">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </@content>
+
+</include>

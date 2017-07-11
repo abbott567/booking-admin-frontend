@@ -6,8 +6,33 @@ const formatDate = require('../utils/format-date');
 
 const apiUrl = (process.env.API_URL || 'http://localhost:3000') + '/api';
 
+function getRoom(id) {
+  return got(`${apiUrl}/Rooms/${id}`, {
+    json: true,
+    query: {
+      filter: JSON.stringify({
+        include: {
+          relation: 'location'
+        }
+      })
+    }
+  });
+}
+
 function getBooking(id) {
-  return got(`${apiUrl}/Bookings/${id}`, {json: true, query: {'filter[include]': 'room'}});
+  return got(`${apiUrl}/Bookings/${id}`, {
+    json: true,
+    query: {
+      filter: JSON.stringify({
+        include: {
+          relation: 'room',
+          scope: {
+            include: 'location'
+          }
+        }
+      })
+    }
+  });
 }
 
 function deleteBooking(id) {
@@ -100,6 +125,11 @@ function searchBookings(search) {
   });
 }
 
+function editBooking(id, updates) {
+  return got.patch(`${apiUrl}/Bookings/${id}`, {json: true, body: updates});
+}
+
 module.exports = {
-  getBooking, deleteBooking, getLocationsAndRooms, getRoomWithBookings, bookRoom, searchBookings
+  getBooking, deleteBooking, getLocationsAndRooms, getRoomWithBookings, 
+  bookRoom, searchBookings, editBooking, getRoom
 };

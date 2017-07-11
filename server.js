@@ -96,6 +96,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/find-a-booking', require('./src/pages/find-a-booking'));
+app.use('/booking', require('./src/pages/booking'));
+app.use('/confirm-update', require('./src/pages/confirm-update'));
 
 // Redirect root to start page
 app.get('/', (req, res) => {

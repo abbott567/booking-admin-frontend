@@ -1,0 +1,63 @@
+import padZero from '../../utils/pad-zero';
+
+$ const i18n = out.stream.req.t;
+
+$ const date = new Date(data.booking.start); 
+$ const endDate = new Date(data.booking.end); 
+
+$ const day = date.getDate();
+$ const month = date.getMonth() + 1;
+$ const year = date.getFullYear();
+
+$ const startHours = padZero(date.getHours());
+$ const startMins = padZero(date.getMinutes());
+
+$ const endHours = padZero(endDate.getHours());
+$ const endMins = padZero(endDate.getMinutes());
+
+<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+  <@content>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Booking details</h1>
+
+        <form method="post">
+          <div class="form-group">
+            <label class="form-label" for="room-select">Room</label>
+            <select class="form-control" id="room-select" name="room-select">
+              <for(location in data.allRooms)>
+                <for(room in location.rooms)>
+                  <option value=room.id selected=(room.id === data.booking.roomId)>${location.name} - ${room.name}</option>
+                </for>
+              </for>
+            </select>
+          </div>
+
+          <gov-input name="name" label="Name" value=data.booking.name/>
+          <gov-input name="description" label="Description" value=data.booking.description/>
+          <gov-date-input name="date" legend="Date" value-day=day value-month=month value-year=year/>
+
+          <fieldset>
+            <legend class="heading-small">Time</legend>
+            <time-select 
+              legend=i18n('book:bookForm.from.legend')
+              name="from"
+              value-hours=startHours
+              value-minutes=startMins
+            />
+            <time-select 
+              legend=i18n('book:bookForm.until.legend')
+              name="until"
+              value-hours=endHours
+              value-minutes=endMins
+            />
+          </fieldset>
+
+          <button type="submit" class="button">Update booking</button>
+          <a class="cancel-link" href="#">Cancel booking</a>
+        </form>
+      </div>
+    </div>
+  </@content>
+
+</include>
