@@ -101,6 +101,8 @@ app.use('/booking', require('./src/pages/booking'));
 app.use('/confirm-update', require('./src/pages/confirm-update'));
 app.use('/booking-updated', require('./src/pages/booking-updated'));
 app.use('/double-booked', require('./src/pages/double-booked'));
+app.use('/delete-booking', require('./src/pages/delete-booking'));
+app.use('/booking-deleted', require('./src/pages/booking-deleted'));
 
 // Redirect root to start page
 app.get('/', (req, res) => {

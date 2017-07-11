@@ -1,0 +1,14 @@
+$ const i18n = out.stream.req.t;
+
+<include('../../common/layout.marko') page-title="${i18n('error:${data.status}.heading')}">
+
+  <@content>
+    <div.govuk-box-highlight.text>
+      <h1.bold-large>
+        Booking deleted
+      </h1>
+    </div>
+    <a href="/find-a-booking">Find another booking</a>
+  </@content>
+
+</include>

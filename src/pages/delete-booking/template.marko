@@ -1,0 +1,45 @@
+import formatTime from '../../utils/format-time';
+$ const i18n = out.stream.req.t;
+
+$ const startOld = formatTime(new Date(data.booking.start));
+$ const endOld = formatTime(new Date(data.booking.end));
+$ const day = new Date(data.booking.start).getDate();
+$ const month = new Date(data.booking.start).getMonth();
+$ const year = new Date(data.booking.start).getFullYear();
+
+<include('../../common/layout.marko') page-title="${i18n('error:${data.status}.heading')}">
+
+  <@content>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <a href="/booking/${data.booking.id}" class="link-back">Back</a>
+
+        <h1.heading-xlarge>
+          Delete this booking
+        </h1>
+
+        <form method="post">
+          <gov-radios name="delete" legend="Delete this booking?" hide-legend=true>
+            <@radio label="Yes" value="yes" />
+            <@radio label="No" value="no" />
+          </gov-radios>
+
+          <div class="form-group">
+            <button class="button" type="submit">Continue</button>
+          </div>
+        </form>
+
+        <div class="panel panel-border-narrow">
+          <h2 class="heading-small">${data.booking.name} - ${data.booking.description}</h2>
+          <p>
+            ${data.booking.room.location.name} - ${data.booking.room.name}<br />
+            ${i18n('date:dayMonthYear', {day, month, year})}<br />
+            ${startOld} - ${endOld}
+          </p>
+        </div>
+      </div>
+    </div>
+  </@content>
+
+</include>
