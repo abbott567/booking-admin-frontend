@@ -1,8 +1,8 @@
 {
-  "subject": "Booked: {{roomName}}, {{bookingDate}}, {{time}}",
+  "subject": "Room booking sign in",
   "body": [
     "Here is your magic link, click this to sign into the room booking admin panel.",
-    "The link will expire in 20 mintes, so don't leave it too long.",
+    "The link will expire in 20 minutes, so don't leave it too long.",
     "",
     "{{-url}}"
   ]
