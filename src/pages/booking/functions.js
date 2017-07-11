@@ -2,7 +2,7 @@
 
 const formatBookingDateTime = require('../../utils/format-booking-date-time');
 const template = require('./template.marko');
-const {getBooking, getLocationsAndRooms, editBooking} = require('./../../lib/booking-api');
+const {getBooking, getLocationsAndRooms} = require('./../../lib/booking-api');
 
 function get(req, res, next) {
   const id = req.params.id;

@@ -1,0 +1,27 @@
+import formatTime from '../../utils/format-time';
+$ const i18n = out.stream.req.t;
+$ const start = formatTime(new Date(data.booking.start));
+$ const end = formatTime(new Date(data.booking.end));
+$ const day = new Date(data.booking.start).getDate();
+$ const month = new Date(data.booking.start).getMonth();
+$ const year = new Date(data.booking.start).getFullYear();
+
+<include('../../common/layout.marko') page-title="${i18n('error:${data.status}.heading')}">
+
+  <@content>
+    <div.govuk-box-highlight.text>
+      <h1.bold-large>
+        Booking updated
+      </h1>
+
+      <h2 class="heading-small">${data.booking.name} - ${data.booking.description}</h2>
+      <p>
+        ${data.booking.room.name} - ${data.booking.room.location.name}<br />
+        ${i18n('date:dayMonthYear', {day, month, year})}<br />
+        ${start} - ${end}<br />
+      </p>
+    </div>
+    <a href="/find-a-booking">Find another booking</a>
+  </@content>
+
+</include>

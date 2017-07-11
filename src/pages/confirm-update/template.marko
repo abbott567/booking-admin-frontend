@@ -9,7 +9,7 @@ $ const endNew = formatTime(new Date(data.updates.end));
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
-        <h1 class="heading-xlarge">Confirm changes</h1>
+        <h1 class="heading-xlarge">Check changes</h1>
 
         <h2 class="heading-medium">Old booking</h2>
         <div class="panel panel-border-narrow">
@@ -29,8 +29,8 @@ $ const endNew = formatTime(new Date(data.updates.end));
           </p>
         </div>
 
-        <form class="post">
-          <input type="hidden" name="id" value="${data.updates.name}"/>
+        <form method="post">
+          <input type="hidden" name="id" value="${data.updates.id}"/>
           <input type="hidden" name="start" value="${data.updates.start}"/>
           <input type="hidden" name="end" value="${data.updates.end}"/>
           <input type="hidden" name="description" value="${data.updates.description}"/>

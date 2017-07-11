@@ -98,6 +98,8 @@ app.use((req, res, next) => {
 app.use('/find-a-booking', require('./src/pages/find-a-booking'));
 app.use('/booking', require('./src/pages/booking'));
 app.use('/confirm-update', require('./src/pages/confirm-update'));
+app.use('/booking-updated', require('./src/pages/booking-updated'));
+app.use('/double-booked', require('./src/pages/double-booked'));
 
 // Redirect root to start page
 app.get('/', (req, res) => {
