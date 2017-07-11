@@ -26,7 +26,8 @@ const port = process.env.PORT || 5000;
 // Enable cookie session storage
 app.use(cookieSession({
   name: 'gaStuff',
-  keys: [process.env.COOKIE_KEYS]
+  keys: [process.env.COOKIE_KEYS],
+  maxAge: 20 * 60 * 1000
 }));
 
 // Enable compression
