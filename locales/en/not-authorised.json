@@ -1,0 +1,5 @@
+{
+  "title": "$t(not-authorised:h1) | $t(app:serviceName)",
+  "h1": "Email not authorised",
+  "p": "Looks like your email address isn’t on the list of administrators. Contact the hub team if you think this is a mistake."
+}

@@ -1,0 +1,10 @@
+{
+  "title": "$t(delete-booking:h1) | $t(app:serviceName)",
+  "h1": "Delete this booking",
+  "legend": "$t(delete-booking:h1)",
+  "labels": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "button": "Continue"
+}

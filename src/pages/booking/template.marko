@@ -15,7 +15,7 @@ $ const startMins = padZero(date.getMinutes());
 $ const endHours = padZero(endDate.getHours());
 $ const endMins = padZero(endDate.getMinutes());
 
-<include("../../common/layout.marko") page-title="${data.booking.name} - ${data.booking.description}" ga-page=data.gaPage>
+<include("../../common/layout.marko") page-title=i18n('booking:title') ga-page=data.gaPage>
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
@@ -54,7 +54,7 @@ $ const endMins = padZero(endDate.getMinutes());
           </fieldset>
 
           <button type="submit" class="button"><i18n-message key="booking:button"/></button>
-          <a class="cancel-link" href="/delete-booking/${data.booking.id}"><i18n-message key="booking:deleteLink"/></a>
+          <a class="cancel-link" href="/delete-booking/${data.booking.id}"><i18n-message key="booking:delete-link"/></a>
         </form>
       </div>
     </div>

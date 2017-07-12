@@ -1,0 +1,8 @@
+{
+  "title": "$t(double-booked:h1) | $t(app:serviceName)",
+  "h1": "Rooms can't be double booked",
+  "p": "This booking couldn't be updated as there's already a booking in the time slots you chose.",
+  "links": {
+    "back": "Back"
+  }
+}

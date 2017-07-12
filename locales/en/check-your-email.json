@@ -1,0 +1,5 @@
+{
+  "title": "$t(check-your-email:h1) | $t(app:serviceName)",
+  "h1": "Check your email",
+  "p": "A magic link has been sent to your email address, click it to access the admin panel. The link will only work for the next 20 minutes."
+}

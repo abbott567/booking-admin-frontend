@@ -1,16 +1,15 @@
 $ const i18n = out.stream.req.t;
 
-<include('../../common/layout.marko') page-title="${i18n('error:${data.status}.heading')}">
+<include('../../common/layout.marko') page-title=i18n('double-booked:title')>
 
   <@content>
-    <a href="/booking/${data.booking.id}" class="link-back">Edit</a>
+    <a href="/booking/${data.booking.id}" class="link-back"><i18n-message key="double-booked:links.back"/></a>
     <h1.heading-xlarge>
-      Rooms can't be double booked
+      <i18n-message key="double-booked:h1"/>
     </h1>
 
     <p class="text">
-      This booking couldn't be updated as there's already a booking in the time 
-      slots you chose.
+      <i18n-message key="double-booked:p"/>
     </p>
   </@content>
 

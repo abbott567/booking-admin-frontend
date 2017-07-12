@@ -1,13 +1,14 @@
-<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+$ const i18n = out.stream.req.t;
+
+<include("../../common/layout.marko") page-title=i18n('not-authorised:title') ga-page=data.gaPage>
 
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
-        <h1 class="heading-xlarge">Email not authorised</h1>
+        <h1 class="heading-xlarge"><i18n-message key="not-authorised:h1"/></h1>
 
         <p>
-          Looks like your email address isn’t on the list of administrators. 
-          Contact the hub team if you think this is a mistake.
+          <i18n-message key="not-authorised:p"/>
         </p>
       </div>
     </div>

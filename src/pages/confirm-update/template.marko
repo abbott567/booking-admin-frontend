@@ -13,14 +13,14 @@ $ const updatesDay = new Date(data.updates.start).getDate();
 $ const updatesMonth = new Date(data.updates.start).getMonth();
 $ const updatesYear = new Date(data.updates.start).getFullYear();
 
-<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+<include("../../common/layout.marko") page-title=i18n('confirm-update:title') ga-page=data.gaPage>
 
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
-        <h1 class="heading-xlarge">Check changes</h1>
+        <h1 class="heading-xlarge"><i18n-message key="confirm-update:h1"/></h1>
 
-        <h2 class="heading-medium">Old booking</h2>
+        <h2 class="heading-medium"><i18n-message key="confirm-update:h2-old"/></h2>
         <div class="panel panel-border-narrow">
           <h3 class="heading-small">${data.booking.name} - ${data.booking.description}</h3>
           <p>
@@ -30,7 +30,7 @@ $ const updatesYear = new Date(data.updates.start).getFullYear();
           </p>
         </div>
 
-        <h2 class="heading-medium">New booking</h2>
+        <h2 class="heading-medium"><i18n-message key="confirm-update:h2-new"/></h2>
         <div class="panel panel-border-narrow">
           <h3 class="heading-small">${data.updates.name} - ${data.updates.description}</h3>
           <p>
@@ -49,8 +49,8 @@ $ const updatesYear = new Date(data.updates.start).getFullYear();
           <input type="hidden" name="roomId" value="${data.updates.roomId}"/>
 
           <div class="form-group">
-            <button type="submit" class="button">Save changes</button>
-            <a href="/booking/${data.booking.id}" class="cancel-link">Cancel</a>
+            <button type="submit" class="button"><i18n-message key="confirm-update:button"/></button>
+            <a href="/booking/${data.booking.id}" class="cancel-link"><i18n-message key="confirm-update:links.cancel"/></a>
           </div>
         </form>
       </div>

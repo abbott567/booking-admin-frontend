@@ -1,0 +1,9 @@
+{
+  "title": "$t(find-a-booking:h1)",
+  "h1": "Find a booking",
+  "labels": {
+    "search": "Search by name or description"
+  },
+  "button": "Search",
+  "search-results": "found for"
+}

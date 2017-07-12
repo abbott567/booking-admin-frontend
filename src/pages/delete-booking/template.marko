@@ -16,17 +16,17 @@ $ const year = new Date(data.booking.start).getFullYear();
         <a href="/booking/${data.booking.id}" class="link-back">Back</a>
 
         <h1.heading-xlarge>
-          Delete this booking
+          <i18n-message key="delete-booking:h1"/>
         </h1>
 
         <form method="post">
-          <gov-radios name="delete" legend="Delete this booking?" hide-legend=true>
-            <@radio label="Yes" value="yes" />
-            <@radio label="No" value="no" />
+          <gov-radios name="delete" legend=i18n('delete-booking:legend') hide-legend=true>
+            <@radio label=i18n('delete-booking:labels.yes') value="yes" />
+            <@radio label=i18n('delete-booking:labels.no') value="no" />
           </gov-radios>
 
           <div class="form-group">
-            <button class="button" type="submit">Continue</button>
+            <button class="button" type="submit"><i18n-message key="delete-booking:button"/></button>
           </div>
         </form>
 

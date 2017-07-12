@@ -1,4 +1,5 @@
 {
+  "title": "$t(booking:h1) | $t(app:serviceName)",
   "h1": "Booking details",
   "labels": {
     "room": "Room",
@@ -15,5 +16,5 @@
     }
   },
   "button": "Update booking",
-  "deleteLink": "Delete booking"
+  "delete-link": "Delete booking"
 }

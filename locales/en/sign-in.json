@@ -1,0 +1,9 @@
+{
+  "title": "$t(sign-in:h1) | $t(app:serviceName)",
+  "h1": "Sign in",
+  "p": "Only authorised administrators can access the admin panel. If you’re on the list, a magic link will be emailed to you which will sign you in.",
+  "labels": {
+    "email": "Email address"
+  },
+  "button": "Send magic link"
+}

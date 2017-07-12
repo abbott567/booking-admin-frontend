@@ -1,0 +1,10 @@
+{
+  "title": "$t(confirm-update:h1) | $t(app:serviceName)",
+  "h1": "Check changes",
+  "h2-old": "Old booking",
+  "h2-new": "New booking",
+  "button": "Save changes",
+  "links": {
+    "cancel": "Cancel"
+  }
+}

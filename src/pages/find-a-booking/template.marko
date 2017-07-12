@@ -1,22 +1,22 @@
 import formatTime from '../../utils/format-time';
 $ const i18n = out.stream.req.t;
 
-<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+<include("../../common/layout.marko") page-title=i18n('find-a-booking:title') ga-page=data.gaPage>
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
-        <h1 class="heading-xlarge">Find a booking</h1>
+        <h1 class="heading-xlarge"><i18n-message key="find-a-booking:h1"/></h1>
 
         <form>
           <bsp-search-box 
             name="search"
-            label="Search by name or description"
-            button-text="Search"
+            label=i18n('find-a-booking:labels.search')
+            button-text=i18n('find-a-booking:button')
           />
         </form>
         
         <if(data.results)>
-          <p>${data.results.length} ${data.resultText} found for "<span class="bold">${data.search}</span>"</p>
+          <p>${data.results.length} ${data.resultText} ${i18n('find-a-booking:search-results')} "<span class="bold">${data.search}</span>"</p>
 
           <ul if(data.results.length > 0) class="list search-results">
             <for(booking in data.results)>

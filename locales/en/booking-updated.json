@@ -1,0 +1,7 @@
+{
+  "title": "$t(booking-updated:h1) | $t(app:serviceName)",
+  "h1": "Booking updated",
+  "links": {
+    "find-another-booking": "Find another booking"
+  }
+}

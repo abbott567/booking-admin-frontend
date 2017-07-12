@@ -1,19 +1,20 @@
+$ const i18n = out.stream.req.t;
+
 <include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
 
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
-        <h1 class="heading-xlarge">Sign in</h1>
+        <h1 class="heading-xlarge"><i18n-message key="sign-in:h1"/></h1>
 
         <p>
-          Only authorised administrators can access the admin panel. If you’re on 
-          the list, a magic link will be emailed to you which will sign you in.
+          <i18n-message key="sign-in:p"/>
         </p>
 
         <form method="post">
-          <gov-input name='email-address' label='Email address'/>
+          <gov-input name='email-address' label=i18n('sign-in:labels.email')/>
 
-          <button class="button">Send magic link</button>
+          <button class="button"><i18n-message key="sign-in:button"/></button>
         </form>
       </div>
     </div>

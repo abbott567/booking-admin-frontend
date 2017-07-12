@@ -17,9 +17,17 @@
   "ns": [
     "app",
     "booking",
+    "booking-updated",
+    "check-your-email",
+    "confirm-update",
     "date",
+    "delete-booking",
+    "double-booked",
     "email",
-    "error"
+    "error",
+    "find-a-booking",
+    "not-authorised",
+    "sign-in"
   ],
   "joinArrays": "\n",
   "whitelist": [

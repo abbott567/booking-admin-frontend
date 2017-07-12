@@ -6,12 +6,12 @@ $ const day = new Date(data.booking.start).getDate();
 $ const month = new Date(data.booking.start).getMonth();
 $ const year = new Date(data.booking.start).getFullYear();
 
-<include('../../common/layout.marko') page-title="${i18n('error:${data.status}.heading')}">
+<include('../../common/layout.marko') page-title=i18n('booking-updated:title')>
 
   <@content>
     <div.govuk-box-highlight.text>
       <h1.bold-large>
-        Booking updated
+        <i18n-message key="booking-updated:h1"/>
       </h1>
 
       <h2 class="heading-small">${data.booking.name} - ${data.booking.description}</h2>
@@ -21,7 +21,7 @@ $ const year = new Date(data.booking.start).getFullYear();
         ${start} - ${end}<br />
       </p>
     </div>
-    <a href="/find-a-booking">Find another booking</a>
+    <a href="/find-a-booking"><i18n-message key="booking-updated:links.find-another-booking"/></a>
   </@content>
 
 </include>

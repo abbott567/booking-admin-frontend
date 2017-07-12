@@ -1,13 +1,14 @@
-<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+$ const i18n = out.stream.req.t;
+
+<include("../../common/layout.marko") page-title="${i18n('check-your-email:title')}" ga-page=data.gaPage>
 
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
-        <h1 class="heading-xlarge">Check your email</h1>
+        <h1 class="heading-xlarge"><i18n-message key="check-your-email:h1"/></h1>
 
         <p>
-          A magic link has been sent to your email address, click it to access 
-          the admin panel. The link will only work for the next 20 minutes.
+          <i18n-message key="check-your-email:p"/>
         </p>
       </div>
     </div>
