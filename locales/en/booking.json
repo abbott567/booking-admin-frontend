@@ -16,5 +16,27 @@
     }
   },
   "button": "Update booking",
-  "delete-link": "Delete booking"
+  "delete-link": "Delete booking",
+  "errors": {
+    "heading": "There's been a problem",
+    "summary": "Fix the following:",
+    "name": "Name cannot be blank",
+    "description": "Description cannot be blank",
+    "date": {
+      "format": "Must be a number",
+      "presence": "Date cannot be blank"
+    },
+    "time": {
+      "invalidHours": "Choose hours from the drop down",
+      "invalidMinutes": "Choose minutes from the drop down",
+      "from": {
+        "backwards": "From can't be greater than until time",
+        "same": "From time can't be the same as until time"
+      },
+      "until": {
+        "backwards": "Until can't be less than from time",
+        "same": "Until time can't be the same as until time"
+      }
+    }
+  }
 }

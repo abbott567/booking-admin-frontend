@@ -1,23 +1,15 @@
-import padZero from '../../utils/pad-zero';
-
 $ const i18n = out.stream.req.t;
-
-$ const date = new Date(data.booking.start); 
-$ const endDate = new Date(data.booking.end); 
-
-$ const day = date.getDate();
-$ const month = date.getMonth() + 1;
-$ const year = date.getFullYear();
-
-$ const startHours = padZero(date.getHours());
-$ const startMins = padZero(date.getMinutes());
-
-$ const endHours = padZero(endDate.getHours());
-$ const endMins = padZero(endDate.getMinutes());
+$ const errors = data.errors || false;
 
 <include("../../common/layout.marko") page-title=i18n('booking:title') ga-page=data.gaPage>
   <@content>
     <div class="grid-row">
+      <gov-error-summary 
+        heading=i18n('booking:errors.heading')
+        summary=i18n('booking:errors.summary')
+        errors=errors
+      />
+
       <div class="column-two-thirds">
         <h1 class="heading-xlarge"><i18n-message key="booking:h1"/></h1>
 
@@ -33,23 +25,23 @@ $ const endMins = padZero(endDate.getMinutes());
             </select>
           </div>
 
-          <gov-input name="name" label="Name" value=data.booking.name/>
-          <gov-input name="description" label=i18n('booking:labels.description') value=data.booking.description/>
-          <gov-date-input name="date" legend=i18n('booking:labels.date') value-day=day value-month=month value-year=year/>
+          <gov-input name="name" label="Name" value=data.booking.name error=errors.name/>
+          <gov-input name="description" label=i18n('booking:labels.description') value=data.booking.description error=errors.description/>
+          <gov-date-input name="date" legend=i18n('booking:labels.date') value-day=data.booking.day value-month=data.booking.month value-year=data.booking.year error=errors.date/>
 
           <fieldset>
             <legend class="heading-small"><i18n-message key="booking:labels.time.legend"/></legend>
             <time-select 
               legend=i18n('booking:labels.time.from.legend')
               name="from"
-              value-hours=startHours
-              value-minutes=startMins
+              value-hours=data.booking.fromHours
+              value-minutes=data.booking.fromMinutes
             />
             <time-select 
               legend=i18n('booking:labels.time.until.legend')
               name="until"
-              value-hours=endHours
-              value-minutes=endMins
+              value-hours=data.booking.untilHours
+              value-minutes=data.booking.untilMinutes
             />
           </fieldset>
 
