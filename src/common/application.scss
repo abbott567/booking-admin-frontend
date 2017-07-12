@@ -3,6 +3,10 @@ $path: '/node_modules/govuk_frontend_toolkit/images/';
 
 @import 'govuk-elements';
 
+#global-cookie-message {
+  display: none !important;
+}
+
 .search-results {
   li {
     margin-bottom: 1em;
