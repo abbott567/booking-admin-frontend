@@ -16,13 +16,9 @@
   },
   "ns": [
     "app",
-    "choose",
-    "book",
+    "booking",
     "date",
     "email",
-    "calendar",
-    "cancel",
-    "cancelled",
     "error"
   ],
   "joinArrays": "\n",

@@ -93,7 +93,7 @@ app.use((req, res, next) => {
   if (userSignedIn) {
     return next();
   }
-  res.redirect('sign-in');
+  res.redirect('/sign-in');
 });
 
 app.use('/find-a-booking', require('./src/pages/find-a-booking'));

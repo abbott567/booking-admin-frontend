@@ -1,0 +1,19 @@
+{
+  "h1": "Booking details",
+  "labels": {
+    "room": "Room",
+    "description": "Description",
+    "date": "Date",
+    "time": {
+      "legend": "Time",
+      "from": {
+        "legend": "From"
+      },
+      "until": {
+        "legend": "Until"
+      }
+    }
+  },
+  "button": "Update booking",
+  "deleteLink": "Delete booking"
+}

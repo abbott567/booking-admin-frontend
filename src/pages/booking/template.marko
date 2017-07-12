@@ -15,15 +15,15 @@ $ const startMins = padZero(date.getMinutes());
 $ const endHours = padZero(endDate.getHours());
 $ const endMins = padZero(endDate.getMinutes());
 
-<include("../../common/layout.marko") page-title="Sign in" ga-page=data.gaPage>
+<include("../../common/layout.marko") page-title="${data.booking.name} - ${data.booking.description}" ga-page=data.gaPage>
   <@content>
     <div class="grid-row">
       <div class="column-two-thirds">
-        <h1 class="heading-xlarge">Booking details</h1>
+        <h1 class="heading-xlarge"><i18n-message key="booking:h1"/></h1>
 
         <form method="post">
           <div class="form-group">
-            <label class="form-label" for="room-select">Room</label>
+            <label class="form-label" for="room-select"><i18n-message key="booking:labels.room"/></label>
             <select class="form-control" id="room-select" name="room-select">
               <for(location in data.allRooms)>
                 <for(room in location.rooms)>
@@ -34,27 +34,27 @@ $ const endMins = padZero(endDate.getMinutes());
           </div>
 
           <gov-input name="name" label="Name" value=data.booking.name/>
-          <gov-input name="description" label="Description" value=data.booking.description/>
-          <gov-date-input name="date" legend="Date" value-day=day value-month=month value-year=year/>
+          <gov-input name="description" label=i18n('booking:labels.description') value=data.booking.description/>
+          <gov-date-input name="date" legend=i18n('booking:labels.date') value-day=day value-month=month value-year=year/>
 
           <fieldset>
-            <legend class="heading-small">Time</legend>
+            <legend class="heading-small"><i18n-message key="booking:labels.time.legend"/></legend>
             <time-select 
-              legend=i18n('book:bookForm.from.legend')
+              legend=i18n('booking:labels.time.from.legend')
               name="from"
               value-hours=startHours
               value-minutes=startMins
             />
             <time-select 
-              legend=i18n('book:bookForm.until.legend')
+              legend=i18n('booking:labels.time.until.legend')
               name="until"
               value-hours=endHours
               value-minutes=endMins
             />
           </fieldset>
 
-          <button type="submit" class="button">Update booking</button>
-          <a class="cancel-link" href="/delete-booking/${data.booking.id}">Delete booking</a>
+          <button type="submit" class="button"><i18n-message key="booking:button"/></button>
+          <a class="cancel-link" href="/delete-booking/${data.booking.id}"><i18n-message key="booking:deleteLink"/></a>
         </form>
       </div>
     </div>
